@@ -3,30 +3,30 @@
         <mat-toolbar color = "warn">Cholesterol Detection Calculator</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "user-detail-form">
             <mat-form-field>
-              <input matInput placeholder="Name" >
+              <input matInput placeholder="Name" required>
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput placeholder="Age" >
+                <input matInput placeholder="Age" required>
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput placeholder="Height (cm)" >
+                  <input matInput placeholder="Height (cm)" required>
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input matInput placeholder="Wheight (kg)" >
+                      <input matInput placeholder="Wheight (kg)" required>
                   </mat-form-field>
 
                   <label id="exercises">Gender?</label>
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group aria-label="Select an option" required>
                     <mat-radio-button value="Male" id = "yes">Male</mat-radio-button>
                     <mat-radio-button value="Female" id = "no">Female</mat-radio-button>
                     <mat-radio-button value="notFound" id = "notFound">Rather Not Found</mat-radio-button>
                   </mat-radio-group>
 
                   <label id="exercises">Are you a smoker?</label>
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group aria-label="Select an option" required>
                     <mat-radio-button value="yes" id = "yes">Yes</mat-radio-button>
                     <mat-radio-button value="no" id = "no">No</mat-radio-button>
                   </mat-radio-group>

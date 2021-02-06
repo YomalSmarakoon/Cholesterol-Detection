@@ -12,12 +12,14 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SignupComponent } from './signup/signup.component';
+import { UserDetailFormComponent } from './user-detail-form/user-detail-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UserDetailFormComponent
   ],
   imports: [
     BrowserModule,

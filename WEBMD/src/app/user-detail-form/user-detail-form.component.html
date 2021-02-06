@@ -1,7 +1,7 @@
 <div fxLayoutAlign = "center center" class="main-div">
     <mat-card fxFlex="50">
-        <mat-toolbar color = "warn">Signup Page</mat-toolbar>
-        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form">
+        <mat-toolbar color = "warn">Cholesterol Detection Calculator</mat-toolbar>
+        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "user-detail-form">
             <mat-form-field>
               <input matInput placeholder="First Name" required>
             </mat-form-field>
@@ -11,15 +11,15 @@
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput placeholder="Email" required>
+                  <input matInput placeholder="What are you eating for breakfast?" required>
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input matInput type = "Password" placeholder="Password" required>
+                      <input matInput placeholder="What are you eating for lunch" required>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput type = "Password" placeholder="Confirm Password" required>
+                    <input matInput placeholder="What are you eating for dinner" required>
                 </mat-form-field>
               <button routerLink = "user-detail-form" mat-raised-button type = "submit" color = "warn">Create New Account</button>
           </form>

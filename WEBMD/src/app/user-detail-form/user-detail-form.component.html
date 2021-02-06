@@ -3,25 +3,31 @@
         <mat-toolbar color = "warn">Cholesterol Detection Calculator</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "user-detail-form">
             <mat-form-field>
-              <input matInput placeholder="First Name" required>
+              <input matInput placeholder="Name" required>
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput placeholder="Last Name" required>
+                <input matInput placeholder="Age" required>
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput placeholder="What are you eating for breakfast?" required>
+                  <input matInput placeholder="Height (cm)" required>
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input matInput placeholder="What are you eating for lunch" required>
+                      <input matInput placeholder="Wheight (kg)" required>
                   </mat-form-field>
 
-                  <mat-form-field>
-                    <input matInput placeholder="What are you eating for dinner" required>
-                </mat-form-field>
-              <button routerLink = "user-detail-form" mat-raised-button type = "submit" color = "warn">Create New Account</button>
+                  <label id="exercises">Gender?</label>
+                  <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="Male" id = "yes">Male</mat-radio-button>
+                    <mat-radio-button value="Female" id = "no">Female</mat-radio-button>
+                    <mat-radio-button value="notFound" id = "notFound">Rather Not Found</mat-radio-button>
+                  </mat-radio-group>
+
+                <br>
+                
+              <button routerLink = "user-detail-form" mat-raised-button type = "Submit" color = "warn">Next --></button>
           </form>
     </mat-card>
 </div>

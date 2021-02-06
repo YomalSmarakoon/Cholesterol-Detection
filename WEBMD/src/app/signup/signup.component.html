@@ -3,23 +3,29 @@
         <mat-toolbar color = "warn">Signup Page</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form">
             <mat-form-field>
-              <input matInput placeholder="First Name" required>
+              <input formControlName="Name" matInput placeholder="First Name" required>
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput placeholder="Last Name" required>
+                <input matInput formControlName="Lastname" placeholder="Last Name" required>
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput placeholder="Email" required>
+                  <input matInput formControlName="Email" placeholder="Email" required>
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input matInput type = "Password" placeholder="Password" required>
+                      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput type = "Password" placeholder="Confirm Password" required>
+                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" placeholder="Confirm Password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
                 </mat-form-field>
               <button routerLink = "user-detail-form" mat-raised-button type = "submit" color = "warn">Create New Account</button>
           </form>

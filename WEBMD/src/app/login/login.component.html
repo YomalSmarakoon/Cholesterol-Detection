@@ -3,14 +3,17 @@
         <mat-toolbar color = "warn">Login Page</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "login-form">
             <mat-form-field>
-              <input matInput placeholder="Username">
+              <input matInput placeholder="Username/Email">
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput type="password" placeholder="Password">
+              <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
               </mat-form-field>
               <button routerLink = "user-detail-form" mat-raised-button type = "submit" color = "warn">Login</button>
-              <p fxLayoutAlign = "center" id = "or" color = "gray">OR</p>
+              <label fxLayoutAlign = "center" id = "or" color = "gray">OR</label>
               <button routerLink = "signup" mat-raised-button type = "submit" color = "warn">Signup</button>
           </form>
     </mat-card>

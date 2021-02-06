@@ -15,6 +15,8 @@ import { SignupComponent } from './signup/signup.component';
 import { UserDetailFormComponent } from './user-detail-form/user-detail-form.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatToolbarModule,
     MatRadioModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,19 +3,19 @@
         <mat-toolbar color = "warn">Cholesterol Detection Calculator</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "user-detail-form">
             <mat-form-field>
-              <input matInput placeholder="Name" required>
+              <input matInput placeholder="Name" >
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput placeholder="Age" required>
+                <input matInput placeholder="Age" >
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput placeholder="Height (cm)" required>
+                  <input matInput placeholder="Height (cm)" >
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input matInput placeholder="Wheight (kg)" required>
+                      <input matInput placeholder="Wheight (kg)" >
                   </mat-form-field>
 
                   <label id="exercises">Gender?</label>
@@ -25,9 +25,44 @@
                     <mat-radio-button value="notFound" id = "notFound">Rather Not Found</mat-radio-button>
                   </mat-radio-group>
 
+                  <label id="exercises">Are you a smoker?</label>
+                  <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="yes" id = "yes">Yes</mat-radio-button>
+                    <mat-radio-button value="no" id = "no">No</mat-radio-button>
+                  </mat-radio-group>
+
+                  <label id="exercises">How often do you exercise?</label>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select your exercise type</mat-label>
+                    <mat-select [formControl]="toppings" multiple>
+                      <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                          (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <label id="exercises">How are your eating habbits?</label>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select your preferable eating type</mat-label>
+                    <mat-select [formControl]="eatings" multiple>
+                      <mat-select-trigger>
+                        {{eatings.value ? eatings.value[0] : ''}}
+                        <span *ngIf="eatings.value?.length > 1" class="example-additional-selection">
+                          (+{{eatings.value.length - 1}} {{eatings.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let eating of eatingList" [value]="eating">{{eating}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                
+
                 <br>
                 
-              <button routerLink = "user-detail-form" mat-raised-button type = "Submit" color = "warn">Next --></button>
+              <button routerLink = "/secondary-details" mat-raised-button type = "Submit" color = "warn">Submit</button>
           </form>
     </mat-card>
 </div>

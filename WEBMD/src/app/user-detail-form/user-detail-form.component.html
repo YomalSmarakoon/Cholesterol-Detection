@@ -30,34 +30,29 @@
                     <mat-radio-button value="yes" id = "yes">Yes</mat-radio-button>
                     <mat-radio-button value="no" id = "no">No</mat-radio-button>
                   </mat-radio-group>
-
-                  <label id="exercises">How often do you exercise?</label>
+                  
                   <mat-form-field appearance="fill">
-                    <mat-label>Select your exercise type</mat-label>
-                    <mat-select [formControl]="toppings" multiple>
-                      <mat-select-trigger>
-                        {{toppings.value ? toppings.value[0] : ''}}
-                        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
-                          (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-                        </span>
-                      </mat-select-trigger>
-                      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-                    </mat-select>
+                    <mat-label>How often do you exercise?</mat-label>
+                    <select matNativeControl required>
+                      <option value="daily">Daily</option>
+                      <option value="week">Once a week</option>
+                      <option value="month">Once a month</option>
+                      <option value="none">Never</option>
+                      <option value="other">Other</option>
+                    </select>
                   </mat-form-field>
 
-                  <label id="exercises">How are your eating habbits?</label>
                   <mat-form-field appearance="fill">
-                    <mat-label>Select your preferable eating type</mat-label>
-                    <mat-select [formControl]="eatings" multiple>
-                      <mat-select-trigger>
-                        {{eatings.value ? eatings.value[0] : ''}}
-                        <span *ngIf="eatings.value?.length > 1" class="example-additional-selection">
-                          (+{{eatings.value.length - 1}} {{eatings.value?.length === 2 ? 'other' : 'others'}})
-                        </span>
-                      </mat-select-trigger>
-                      <mat-option *ngFor="let eating of eatingList" [value]="eating">{{eating}}</mat-option>
-                    </mat-select>
+                    <mat-label>Select your eating habbits?</mat-label>
+                    <select matNativeControl required>
+                      <option value="fast">Fast Food</option>
+                      <option value="home">Home Made Food</option>
+                      <option value="junk">Junk Food</option>
+                      <option value="street">Street Food</option>
+                      <option value="other">Other</option>
+                    </select>
                   </mat-form-field>
+                  
                 
 
                 <br>

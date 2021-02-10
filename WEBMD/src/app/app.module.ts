@@ -17,13 +17,16 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
+import { MainPageComponent } from './main-page/main-page.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    UserDetailFormComponent
+    UserDetailFormComponent,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,

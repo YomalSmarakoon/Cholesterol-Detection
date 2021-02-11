@@ -1,33 +1,49 @@
 <div fxLayoutAlign = "center center" class="main-div">
     <mat-card fxFlex="50">
         <mat-toolbar color = "warn">Signup Page</mat-toolbar>
-        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form">
+        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form" [formGroup]="form">
             <mat-form-field>
-              <input formControlName="Name" matInput placeholder="First Name" required>
+              <input name = "name" formControlName="Name" matInput class="form-control" id="name" placeholder="First Name" required>
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput formControlName="Lastname" placeholder="Last Name" required>
+                <input matInput formControlName="Lastname" name = "surname" class="form-control" id="surname" placeholder="Last Name" required>
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput formControlName="Email" placeholder="Email" required>
+                  <input matInput formControlName="Email" name = "email" class="form-control" id="email" placeholder="Email" required>
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+                      <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" name = "password" class="form-control" id="password" placeholder="Password" required>
                       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" placeholder="Confirm Password" required>
+                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" name = "cnfpassword" class="form-control" id="cnfpassword" placeholder="Confirm Password" required>
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
-              <button routerLink = "/user-detail-form" mat-raised-button type = "submit" color = "warn">Create New Account</button>
+              <button mat-raised-button type = "submit" (click)="onSubmit()" color = "warn">Create New Account</button>
+
+              <div class="validations" *ngIf="form.touched">
+                <br>
+                  <hr>
+                <span>
+                  <i class="fa fa-check-circle" style="color:green;"  *ngIf="form.controls.confirmPassword.valid"></i>
+                  <i class="fa fa-times-circle" style="color:firebrick;" *ngIf="form.controls.confirmPassword.invalid"></i>
+                  Password and Confirm Password should match.
+                </span>
+                <br>
+                <span>
+                  <i class="fa fa-check-circle" style="color:green;"  *ngIf="form.controls.Password.valid"></i>
+                  <i class="fa fa-times-circle" style="color:firebrick;" *ngIf="form.controls.Password.invalid"></i>
+                  Password Should have minimum 6 characters.
+                </span>
+                </div>
           </form>
     </mat-card>
 </div>

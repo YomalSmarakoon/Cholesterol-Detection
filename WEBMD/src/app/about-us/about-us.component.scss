@@ -1,0 +1,71 @@
+img{
+    width: 200px;
+    border-radius: 100%;
+}
+.grid{
+    margin-top: -600px;
+}
+img:hover + .binura {
+    display: block;
+    width: 50%;
+}
+img:hover + .senesh {
+    display: block;
+    width: 50%;
+}
+img:hover + .pasindu {
+    display: block;
+    width: 50%;
+}
+img:hover + .chanuth {
+    display: block;
+    width: 50%;
+}
+img:hover + .yomal {
+    display: block;
+    width: 50%;
+}
+img:hover + .malaka {
+    display: block;
+    width: 50%;
+}
+img:hover{
+    opacity: 70%;
+}
+.binura{
+    display: none;
+    font-weight: bold;
+    font-size: 24px;
+    color:	#C0C0C0;
+}
+
+.senesh{
+    display: none;
+    font-weight: bold;
+    font-size: 24px;
+    color:	#C0C0C0;
+}
+.pasindu{
+    display: none;
+    font-weight: bold;
+    font-size: 24px;
+    color:	#C0C0C0;
+}
+.chanuth{
+    display: none;
+    font-weight: bold;
+    font-size: 24px;
+    color:	#C0C0C0;
+}
+.yomal{
+    display: none;
+    font-weight: bold;
+    font-size: 24px;
+    color:	#150e06;
+}
+.malaka{
+    display: none;
+    font-weight: bold;
+    font-size: 24px;
+    color:#C0C0C0;
+}

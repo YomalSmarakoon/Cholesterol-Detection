@@ -19,6 +19,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { MainPageComponent } from './main-page/main-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -28,6 +31,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     SignupComponent,
     UserDetailFormComponent,
     MainPageComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { MainPageComponent } from './main-page/main-page.component';
     MatMenuModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

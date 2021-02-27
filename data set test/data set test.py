@@ -15,29 +15,40 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+import joblib
 import pandas as pd
 
 
 
 # Load dataset
+joblib.load('trainingdata.joblib')
 pd.set_option('display.max_columns', None)
 df=pd.read_csv("D:\IIT\git hub\sdgp\Cholesterol-Detection\cardio_train 2.csv",delimiter=';')
 
 
-print(df)
+#print(df)
 
 #input set
 newset1 = df.drop(columns=['alco','gluc','id','cholesterol','ap_hi','ap_lo','active','cardio'])
-print(newset1)
+#print(newset1)
 
 #output set
 newset2 = df['cholesterol']
 #print (newset2)
 
+newset1_train, newset1_test, newset2_train, newset2_test = train_test_split(newset1,newset2, test_size=0.2)
+
 
 #predection model
 model = DecisionTreeClassifier()
-model.fit(newset1, newset2)
-prediction = model.predict([[19066,2,183,105,0]])
+model.fit(newset1_train, newset2_train)
+
+joblib.dump(model,'trainingdata.joblib')
+prediction = model.predict(newset1_test)
+
+score=accuracy_score(newset2_test, prediction)
+print(score)
 print(prediction)
+
+
 

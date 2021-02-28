@@ -27,7 +27,7 @@
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
-              <button mat-raised-button type = "submit" (click)="onSubmit()" color = "warn">Create New Account</button>
+              <button mat-raised-button type = "submit" (click)="onSubmit()" ng-click="onSubmit()" color = "warn">Create New Account</button>
 
               <div class="validations" *ngIf="form.touched">
                 <br>
@@ -44,6 +44,29 @@
                   Password Should have minimum 6 characters.
                 </span>
                 </div>
+                <script>
+                  var app = angular.module("sa_insert", []);
+                  app.controller("controller", function($scope, $http) {
+                      $scope.onSubmit = function() {
+                          $http.post(
+                              "insert_data.php", {
+                                  'Name': $scope.Name,
+                                  'Lastname': $scope.Lastname,
+                                  'Email': $scope.Email,
+                                  'Password': $scope.Password,
+                                  'confirmPassword': $scope.confirmPassword,
+                              }
+                          ).success(function(data) {
+                              alert(data);
+                              $scope.Name = null;
+                              $scope.Lastname = null;
+                              $scope.Email = null;
+                              $scope.Password = null;
+                              $scope.confirmPassword = null;
+                          });
+                      }
+                  });
+                  </script>
           </form>
     </mat-card>
 </div>

@@ -18,24 +18,29 @@ from sklearn.svm import SVC
 import joblib
 import pandas as pd
 
-
+# gender--       male =2  , female =1
+#smoking--       smoke=0 , not smoke =0
+#cholestero --   1-normal   2-above normal  3-well above normal
+#age  ---        is in days
 
 # Load dataset
-joblib.load('trainingdata.joblib')
+#joblib.load('trainingdata.joblib')
 pd.set_option('display.max_columns', None)
 df=pd.read_csv("D:\IIT\git hub\sdgp\Cholesterol-Detection\cardio_train 2.csv",delimiter=';')
 
 
-#print(df)
+print(df)
 
 #input set
 newset1 = df.drop(columns=['alco','gluc','id','cholesterol','ap_hi','ap_lo','active','cardio'])
-#print(newset1)
+print(newset1)
 
 #output set
 newset2 = df['cholesterol']
 #print (newset2)
 
+
+#splitting the data set for training and testing
 newset1_train, newset1_test, newset2_train, newset2_test = train_test_split(newset1,newset2, test_size=0.2)
 
 
@@ -46,9 +51,21 @@ model.fit(newset1_train, newset2_train)
 joblib.dump(model,'trainingdata.joblib')
 prediction = model.predict(newset1_test)
 
+#acurracy testing
 score=accuracy_score(newset2_test, prediction)
-print(score)
-print(prediction)
+
+
+#                           age,gender,height,weight,smoke
+prediction=model.predict([['17000','2','155','90','1']])
+#predictions=model.predict([['22469','1','155','69.0','0']])
+predictions=model.predict([['18250','1','152.4','52','0']])
+
+
+print("accuracy score :",score)
+
+print("first prediction : ",prediction)
+print("second prediction : ",predictions)
+
 
 
 

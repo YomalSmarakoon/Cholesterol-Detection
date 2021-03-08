@@ -3,26 +3,26 @@
         <mat-toolbar color = "warn">Signup Page</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form" [formGroup]="form">
             <mat-form-field>
-              <input name = "name" formControlName="Name" matInput class="form-control" id="name" placeholder="First Name" required>
+              <input name = "name" formControlName="Name" matInput class="form-control" id="name" placeholder="First Name" required [(ngModel)]="tutorial.fname">
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput formControlName="Lastname" name = "surname" class="form-control" id="surname" placeholder="Last Name" required>
+                <input matInput formControlName="Lastname" name = "surname" class="form-control" id="surname" placeholder="Last Name" required [(ngModel)]="tutorial.lname">
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput formControlName="Email" name = "email" class="form-control" id="email" placeholder="Email" required>
+                  <input matInput formControlName="Email" name = "email" class="form-control" id="email" placeholder="Email" required [(ngModel)]="tutorial.email">
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" name = "password" class="form-control" id="password" placeholder="Password" required>
+                      <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" name = "password" class="form-control" id="password" placeholder="Password" required [(ngModel)]="tutorial.password">
                       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" name = "cnfpassword" class="form-control" id="cnfpassword" placeholder="Confirm Password" required>
+                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" name = "cnfpassword" class="form-control" id="cnfpassword" placeholder="Confirm Password" required [(ngModel)]="tutorial.cpassword">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
@@ -44,29 +44,6 @@
                   Password Should have minimum 6 characters.
                 </span>
                 </div>
-                <script>
-                  var app = angular.module("sa_insert", []);
-                  app.controller("controller", function($scope, $http) {
-                      $scope.onSubmit = function() {
-                          $http.post(
-                              "insert_data.php", {
-                                  'Name': $scope.Name,
-                                  'Lastname': $scope.Lastname,
-                                  'Email': $scope.Email,
-                                  'Password': $scope.Password,
-                                  'confirmPassword': $scope.confirmPassword,
-                              }
-                          ).success(function(data) {
-                              alert(data);
-                              $scope.Name = null;
-                              $scope.Lastname = null;
-                              $scope.Email = null;
-                              $scope.Password = null;
-                              $scope.confirmPassword = null;
-                          });
-                      }
-                  });
-                  </script>
           </form>
     </mat-card>
 </div>

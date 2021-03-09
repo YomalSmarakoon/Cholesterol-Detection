@@ -1,7 +1,5 @@
 module.exports = mongoose => {
-    const Tutorial = mongoose.model(
-      "tutorial",
-      mongoose.Schema(
+    var schema = mongoose.Schema(
         {
           fname: String,
           lname: String,
@@ -10,8 +8,14 @@ module.exports = mongoose => {
           cpassword: String,
         },
         { timestamps: true }
-      )
-    );
+      );
+
+      schema.method("toJSON", function(){
+        const {__v, _id, ...object } = this.toObject();
+        object.id = _id;
+        return object;
+      });
   
+    const Tutorial = mongoose.model("tutorial", schema);  
     return Tutorial;
   };

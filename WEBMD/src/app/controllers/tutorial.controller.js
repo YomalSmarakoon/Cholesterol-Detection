@@ -1,23 +1,17 @@
 const db = require("../models");
-const Tutorial = db.tutorials;
+const Tutorial = db.tutorial;
 
-// Create and Save a new Tutorial
+// Create and Save a new user
 exports.create = (req, res) => {
-    if (!req.body.title) {
-        res.status(400).send({ message: "Content can not be empty!" });
-        return;
-      }
-    
-      // Create a Tutorial
-      const tutorial = new Tutorial({
+    const tutorial = new Tutorial({
         fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
         password: req.body.password,
-        cpassword: req.body.cpassword
+        cpassword: req.body.cpassword,
       });
     
-      // Save Tutorial in the database
+      // Save user in the database
       tutorial
         .save(tutorial)
         .then(data => {
@@ -29,4 +23,4 @@ exports.create = (req, res) => {
               err.message || "Some error occurred while creating the Tutorial."
           });
         });
-};
+    };

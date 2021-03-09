@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Cholestomate Net." });
 });
 
-require("./src/app/routes/routes")(app);
+require("./src/app/routes/user.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

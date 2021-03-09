@@ -1,3 +1,3 @@
 module.exports = {
-    url: "mongodb://localhost:27017/user_signup"
-  };
+  url: "mongodb://localhost:27017/user_signup"
+};

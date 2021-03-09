@@ -15,6 +15,6 @@ export class TutorialService {
   }
 
   create(data: { fname: string; lname: string; email: string; password: string; cpassword: string; }) {
-    return this.http.post(baseUrl, data);
+    return this.http.put(baseUrl, data);
   }
 }

@@ -1,44 +1,35 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const express = require('express')
+const mongoose = require('mongoose')
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
-const app = express();
+const EmployeeRoute = require('./src/app/routes/employeeRoutes')
+const AuthRoute = require('./src/app/routes/auth')
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
+mongoose.connect('mongodb://127.0.0.1:27017/details', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false, useCreateIndex: true})
+const db = mongoose.connection
 
-app.use(cors(corsOptions));
+db.on('error', (err)=>{
+  console.log(err)
+})
 
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
+db.once('open', ()=>{
+  console.log('Database Connection Established!')
+})
 
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+const app = express()
+app.use(cors())
 
-const db = require("./src/app/models");
-db.mongoose
-  .connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("Connected to the database!");
-  })
-  .catch(err => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-  });
+app.use(morgan('dev'))
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Cholestomate Net." });
-});
+const PORT = process.env.PORT || 3000
 
-require("./src/app/routes/user.routes")(app);
+app.listen(PORT, ()=> {
+  console.log(`Server is running on port ${PORT}`)
+})
 
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+app.use('/api/employeeRoutes', EmployeeRoute)
+app.use('/api', AuthRoute)

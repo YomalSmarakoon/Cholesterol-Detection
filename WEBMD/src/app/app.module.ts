@@ -23,6 +23,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { TutorialService } from './services/tutorial.service';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatGridListModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [TutorialService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

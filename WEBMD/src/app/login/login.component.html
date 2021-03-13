@@ -3,11 +3,11 @@
         <mat-toolbar color = "warn">Login Page</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "login-form" [formGroup]="form">
             <mat-form-field>
-              <input formControlName="username" name = "usernameInput" matInput type = "text" class="form-control" id="usernameInput" placeholder="Username/Email">
+              <input formControlName="username" name = "usernameInput" matInput type = "text" class="form-control" id="usernameInput" placeholder="Username/Email" [(ngModel)]="details.username">
             </mat-form-field>
           
             <mat-form-field>
-              <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" class="form-control" id="passwordInput" placeholder="Password">
+              <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" class="form-control" id="passwordInput" placeholder="Password" [(ngModel)]="details.password">
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>

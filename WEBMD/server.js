@@ -32,4 +32,4 @@ app.listen(PORT, ()=> {
 })
 
 app.use('/api/employeeRoutes', EmployeeRoute)
-app.use('/api', AuthRoute)
+app.use('/api/', AuthRoute)

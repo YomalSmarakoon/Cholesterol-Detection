@@ -1,33 +1,33 @@
-<div fxLayoutAlign = "center center" class="main-div" *ngIf="!submitted">
+<div fxLayoutAlign = "center center" class="main-div">
     <mat-card fxFlex="50">
         <mat-toolbar color = "warn">Signup Page</mat-toolbar>
         <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form" [formGroup]="form" (ngSubmit)="onSubmit()">
             <mat-form-field>
-              <input name = "name" formControlName="Name" matInput class="form-control" id="name" placeholder="First Name" required [(ngModel)]="tutorial.fname">
+              <input name = "name" formControlName="Name" matInput class="form-control" id="name" placeholder="First Name" required [(ngModel)]="details.fname">
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput formControlName="Lastname" name = "surname" class="form-control" id="surname" placeholder="Last Name" required [(ngModel)]="tutorial.lname">
+                <input matInput formControlName="Lastname" name = "surname" class="form-control" id="surname" placeholder="Last Name" required [(ngModel)]="details.lname">
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput formControlName="Email" name = "email" class="form-control" id="email" placeholder="Email" required [(ngModel)]="tutorial.email">
+                  <input matInput formControlName="Email" name = "email" class="form-control" id="email" placeholder="Email" required [(ngModel)]="details.email">
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" name = "password" class="form-control" id="password" placeholder="Password" required [(ngModel)]="tutorial.password">
+                      <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" name = "password" class="form-control" id="password" placeholder="Password" required [(ngModel)]="details.password">
                       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" name = "cnfpassword" class="form-control" id="cnfpassword" placeholder="Confirm Password" required [(ngModel)]="tutorial.cpassword">
+                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" name = "cnfpassword" class="form-control" id="cnfpassword" placeholder="Confirm Password" required [(ngModel)]="details.cpassword">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
-              <button mat-raised-button type = "submit" (click)="onSubmit()" ng-click="onSubmit()" color = "warn">Create New Account</button>
+              <button mat-raised-button type = "button" (click)="onSubmit()" color = "warn">Create New Account</button>
 
               <div class="validations" *ngIf="form.touched">
                 <br>

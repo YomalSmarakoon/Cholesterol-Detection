@@ -1,7 +1,7 @@
 <div fxLayoutAlign = "center center" class="main-div">
     <mat-card fxFlex="50">
         <mat-toolbar color = "warn">Signup Page</mat-toolbar>
-        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form" [formGroup]="form" (ngSubmit)="onSubmit()" method="POST">
             <mat-form-field>
               <input name = "name" formControlName="Name" matInput class="form-control" id="name" placeholder="First Name" required [(ngModel)]="details.fname">
             </mat-form-field>

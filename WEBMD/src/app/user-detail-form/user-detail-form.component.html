@@ -1,39 +1,39 @@
 <div fxLayoutAlign = "center center" class="main-div">
     <mat-card fxFlex="50">
         <mat-toolbar color = "warn">Cholesterol Detection Calculator</mat-toolbar>
-        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "user-detail-form">
+        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "user-detail-form" [formGroup]="form" (ngSubmit)="onSubmit()" method="POST">
             <mat-form-field>
-              <input matInput placeholder="Name" required>
+              <input matInput placeholder="Name" formControlName="name" name = "name" matInput class="form-control" required [(ngModel)]="user.name">
             </mat-form-field>
           
             <mat-form-field>
-                <input matInput placeholder="Age" required>
+                <input matInput placeholder="Age" formControlName="age" class="form-control" required [(ngModel)]="user.age">
               </mat-form-field>
 
               <mat-form-field>
-                  <input matInput placeholder="Height (cm)" required>
+                  <input matInput placeholder="Height (cm)" formControlName="height" class="form-control" required [(ngModel)]="user.height">
                   </mat-form-field>
 
                   <mat-form-field>
-                      <input matInput placeholder="Wheight (kg)" required>
+                      <input matInput placeholder="Weight (kg)" formControlName="weight" class="form-control" required [(ngModel)]="user.weight">
                   </mat-form-field>
 
                   <label id="exercises">Gender?</label>
-                  <mat-radio-group aria-label="Select an option" required>
-                    <mat-radio-button value="Male" id = "male">Male</mat-radio-button>
+                  <mat-radio-group aria-label="Select an option" formControlName="gender" class="form-control" required [(ngModel)]="user.gender">
+                    <mat-radio-button value="Male" id = "male">Male </mat-radio-button>
                     <mat-radio-button value="Female" id = "female">Female</mat-radio-button>
-                    <mat-radio-button value="notFound" id = "notFound">Rather Not Found</mat-radio-button>
+                    <mat-radio-button value="notFound" id = "notFound">Prefer Not to Say</mat-radio-button>
                   </mat-radio-group>
 
                   <label id="smoking">Are you a smoker?</label>
-                  <mat-radio-group aria-label="Select an option" required>
+                  <mat-radio-group aria-label="Select an option" formControlName="smoker" class="form-control" required [(ngModel)]="user.smoker">
                     <mat-radio-button value="yes" id = "yes">Yes</mat-radio-button>
                     <mat-radio-button value="no" id = "no">No</mat-radio-button>
                   </mat-radio-group>
                   
                   <mat-form-field appearance="fill">
                     <mat-label>How often do you exercise?</mat-label>
-                    <select matNativeControl required>
+                    <select matNativeControl required [(ngModel)]="user.exercise" class="form-control" formControlName="exercise">
                       <option value="daily">Daily</option>
                       <option value="week">Once a week</option>
                       <option value="month">Once a month</option>
@@ -43,16 +43,17 @@
                   </mat-form-field>
                   
                   <label>If someone in your family have diseases shown below please tick the relevant box...</label>
-                  <div class="checkboxes">
-                    <mat-checkbox value="cholesterol">Cholesterol</mat-checkbox>
-                    <mat-checkbox value="pressure">High Blood Pressure</mat-checkbox>
-                    <mat-checkbox value="heart_attack">Heart Attack</mat-checkbox>
-                    <mat-checkbox value="stroke">Stroke</mat-checkbox>
-                  </div>
+                  <mat-radio-group aria-label="Select an option" formControlName="disease" class="form-control" required [(ngModel)]="user.disease">
+                    <mat-radio-button value="cholesterol">Cholesterol</mat-radio-button>
+                    <mat-radio-button value="pressure">High Blood Pressure</mat-radio-button>
+                    <mat-radio-button value="heart_attack">Heart Attack</mat-radio-button>
+                    <mat-radio-button value="stroke">Stroke</mat-radio-button>
+                  </mat-radio-group>
 
+      
                   <mat-form-field appearance="fill">
                     <mat-label>Select your eating habbits?</mat-label>
-                    <select matNativeControl required>
+                    <select matNativeControl required [(ngModel)]="user.habits" class="form-control" formControlName="habits">
                       <option value="fast">Fast Food</option>
                       <option value="home">Home Made Food</option>
                       <option value="junk">Junk Food</option>
@@ -65,7 +66,7 @@
 
                 <br>
                 
-              <button routerLink = "/secondary-details" mat-raised-button type = "Submit" color = "warn">Submit</button>
+              <button mat-raised-button type = "button" (click) ="onSubmit()" color = "warn">Submit</button>
           </form>
     </mat-card>
 </div>

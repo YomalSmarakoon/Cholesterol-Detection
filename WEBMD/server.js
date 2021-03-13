@@ -4,7 +4,6 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const EmployeeRoute = require('./src/app/routes/employeeRoutes')
 const AuthRoute = require('./src/app/routes/auth')
 
 mongoose.connect('mongodb://127.0.0.1:27017/details', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false, useCreateIndex: true})
@@ -31,5 +30,4 @@ app.listen(PORT, ()=> {
   console.log(`Server is running on port ${PORT}`)
 })
 
-app.use('/api/employeeRoutes', EmployeeRoute)
 app.use('/api/', AuthRoute)

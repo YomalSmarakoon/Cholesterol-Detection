@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   form: FormGroup;
   details = {
-    username: '',
+    email: '',
     password: '',
   };
   
@@ -25,12 +25,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
       if (this.form.valid) {
-        const logindet = {
-          username: this.details.username,
+        const userdata = {
+          username: this.details.email,
           password: this.details.password,
         };
   
-        this.service.find(logindet)
+        this.service.find(userdata)
         .subscribe(
           response => {
             console.log(response);

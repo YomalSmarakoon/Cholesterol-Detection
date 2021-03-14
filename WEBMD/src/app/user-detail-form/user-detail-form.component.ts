@@ -53,11 +53,11 @@ export class UserDetailFormComponent{
         age: this.user.age,
         height: this.user.height,
         weight: this.user.weight,
-        gender: this.user.gender.valueOf,
-        smoker: this.user.smoker.valueOf,
-        exercise: this.user.exercise.valueOf,
-        disease: this.user.disease.valueOf,
-        habits: this.user.habits.valueOf,
+        gender: this.user.gender,
+        smoker: this.user.smoker,
+        exercise: this.user.exercise,
+        disease: this.user.disease,
+        habits: this.user.habits,
 
       };
 

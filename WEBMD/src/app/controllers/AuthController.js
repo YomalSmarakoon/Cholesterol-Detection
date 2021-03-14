@@ -14,8 +14,8 @@ const register = (req, res, next) =>{
             fname: req.body.fname,
             lname: req.body.lname,
             email: req.body.email,
-            password: req.body.password,
-            cpassword: req.body.cpassword
+            password: hashedPass,
+            cpassword: hashedPass
         })
         user.save()
         .then(user => {

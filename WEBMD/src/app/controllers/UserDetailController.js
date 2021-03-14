@@ -17,7 +17,7 @@ const detailForm = (req, res, next) =>{
         userDetail.save()
         .then(userDetail => {
             res.json({
-                message: 'User added Successfully!'
+                message: 'User Details added Successfully!'
             })
         })
         .catch(error => {

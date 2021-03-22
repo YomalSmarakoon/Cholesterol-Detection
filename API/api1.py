@@ -55,3 +55,39 @@ def ml():
 
         #loading testing data
         model=joblib.load('trainingdataofLR.joblib')
+        
+        #if user smoke
+        if UserSmoker == 'no':
+                smoker=0
+
+        elif UserSmoker == 'yes':
+                smoker=1
+                            
+        #if gender
+        if UserGender == 'Male':
+                gender=2
+                
+        elif UserGender == 'Female':
+                gender=1
+        #age to days
+        age = UserAge*365.2425
+                    
+        #                           age,gender, height,   weight,    smoke
+        predictions=model.predict([[age,gender,UserHeight,UserWeight,smoker]])
+
+
+        if predictions == 1 :
+        	return render_template("result.component.html", content ="<h1>the patient has NORMAL levels of cholesterol [1]</h1>")
+
+        elif predictions == 2 :
+        	return render_template("result.component.html", content ="<h1>the patient has ABOVE NORMAL levels of cholesterol [2]</h1>")
+        	 
+        elif predictions == 3 :
+        	return render_template("result.component.html", content ="the patient has WELL ABOVE NORMAL levels of cholesterol [3]")
+        	
+                
+
+#api.add_resource(helloworld,"/helloworld")
+
+if __name__ == "__main__":
+	app.run(debug=True)

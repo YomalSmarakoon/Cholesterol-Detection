@@ -45,3 +45,51 @@ class Machinelearning(Resource):
         #taking tables as "userdetails" collection
         table=db.userdetails
         print(table.find_one())
+        
+        #finding a random collection in "userdetails'
+        instance = table.find_one()
+                
+        #input variables
+        UserName= instance['name']
+        UserAge= instance['age']
+        UserHeight=instance['height']
+        UserWeight=instance['weight']
+        UserGender= instance['gender']
+        UserSmoker=instance['smoker']
+
+        #loading testing data
+        model=joblib.load('trainingdataofLR.joblib')
+
+
+        #if user smoke
+        if UserSmoker == 'no':
+                smoker=0
+
+        elif UserSmoker == 'yes':
+                smoker=1
+                            
+        #if gender
+        if UserGender == 'Male':
+                gender=2
+                
+        elif UserGender == 'Female':
+                gender=1
+        #age to days
+        age = UserAge*365.2425
+                    
+        #                           age,gender, height,   weight,    smoke
+        predictions=model.predict([[age,gender,UserHeight,UserWeight,smoker]])
+
+
+        if predictions == 1 :
+        	return jsonify("<h1>the patient has NORMAL levels of cholesterol [1]</h1>")
+
+        elif predictions == 2 :
+        	return jsonify("<h1>the patient has ABOVE NORMAL levels of cholesterol [2]</h1>")
+        	 
+        elif predictions == 3 :
+        	return jsonify("the patient has WELL ABOVE NORMAL levels of cholesterol [3]")
+
+
+if __name__ == "__main__":
+	app.run(debug=True)

@@ -16,9 +16,11 @@ from sklearn.svm import SVC
 import joblib
 import pandas as pd
 
+
 import pymongo 
+from pymongo import MongoClient
 import pprint
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 
 app= Flask(__name__ )
@@ -55,7 +57,8 @@ def ml():
 
         #loading testing data
         model=joblib.load('trainingdataofLR.joblib')
-        
+
+
         #if user smoke
         if UserSmoker == 'no':
                 smoker=0
@@ -76,18 +79,48 @@ def ml():
         predictions=model.predict([[age,gender,UserHeight,UserWeight,smoker]])
 
 
+        
+        #connecting to result database
+        resultcollection = db["results"]
+
+
+        
         if predictions == 1 :
-        	return render_template("result.component.html", content ="<h1>the patient has NORMAL levels of cholesterol [1]</h1>")
+                pred1 = "the patient has NORMAL levels of cholesterol [1]"
+
+                post1 = {"pred": pred1, "name": UserName} #data
+
+                #return resultcollection.insert_one(post1)
+
+                return resultcollection.insert_one(post1)
+
+                
 
         elif predictions == 2 :
-        	return render_template("result.component.html", content ="<h1>the patient has ABOVE NORMAL levels of cholesterol [2]</h1>")
+
+                pred2 = "the patient has ABOVE NORMAL levels of cholesterol [2]"
+
+                post2 = { "pred": pred2, "name": UserName} #data
+
+                return resultcollection.insert_one(post2)
+
+
+                #return resultcollection.insert_one(post2)
+
+
         	 
         elif predictions == 3 :
-        	return render_template("result.component.html", content ="the patient has WELL ABOVE NORMAL levels of cholesterol [3]")
-        	
+                pred3 = "the patient has WELL ABOVE NORMAL levels of cholesterol [3]"
+
+                post3 = {"pred": pred3, "name": UserName} #data
+
+                return resultcollection.insert_one(post3)
+
+                       	
                 
 
 #api.add_resource(helloworld,"/helloworld")
 
 if __name__ == "__main__":
 	app.run(debug=True)
+

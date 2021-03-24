@@ -1,4 +1,5 @@
 const UserDetail = require('../models/UserDetail')
+const Result = require('../models/Result')
 
 const detailForm = (req, res, next) =>{
 
@@ -27,6 +28,23 @@ const detailForm = (req, res, next) =>{
         })
 }
 
+const findAll = (req, res) => {
+    const name = req.query.name;
+    var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
+  
+    result.find(condition)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving tutorials."
+        });
+      });
+  };
+
+
 module.exports = {
-    detailForm
+    detailForm,findAll
 }

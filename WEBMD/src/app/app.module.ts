@@ -24,6 +24,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TutorialService } from './services/tutorial.service';
+import { ResultComponent } from './result/template/result.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { TutorialService } from './services/tutorial.service';
     UserDetailFormComponent,
     MainPageComponent,
     AboutUsComponent,
+    ResultComponent,
   ],
   imports: [
     BrowserModule,

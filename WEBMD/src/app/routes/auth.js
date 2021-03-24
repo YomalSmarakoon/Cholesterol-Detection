@@ -7,5 +7,6 @@ const UserDetailController = require('../controllers/UserDetailController')
 router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
 router.post('/userdetail', UserDetailController.detailForm)
+router.get('/algorithm', UserDetailController.findAll)
 
 module.exports = router

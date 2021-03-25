@@ -7,6 +7,7 @@ import {TutorialService } from '../../services/tutorial.service';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
+  output: any;
 
   constructor(private services: TutorialService) { 
     
@@ -23,5 +24,17 @@ export class ResultComponent implements OnInit {
       }
     );
   }
+
+  content = this.services.getAll()
+  .subscribe(
+    response => {
+      if(response)
+        this.output = response;
+        console.log(this.output);
+    },
+    error => {
+      console.log(error);
+    }
+  )
 
 }

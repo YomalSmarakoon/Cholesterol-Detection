@@ -28,22 +28,20 @@ const detailForm = (req, res, next) =>{
         })
 }
 
-const findAll = (req, res) => {
-    const name = req.query.name;
-    var condition = name ? { name: { $regex: new RegExp(name), $options: "i" } } : {};
-  
-    result.find(condition)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving tutorials."
-        });
+const findAll = (req, res, next) => {
+    Result.find()
+    .then(result=>{
+      res.status(200).json({
+        result
       });
-  };
-
+    })
+    .catch(err=>{
+      console.log(err)
+      res.status(500).json({
+        error: err
+      })
+    });
+  }
 
 module.exports = {
     detailForm,findAll

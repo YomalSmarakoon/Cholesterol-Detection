@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {TutorialService } from '../../services/tutorial.service';
+
 
 @Component({
   selector: 'app-result',
@@ -9,20 +11,11 @@ import {TutorialService } from '../../services/tutorial.service';
 export class ResultComponent implements OnInit {
   output: any;
 
-  constructor(private services: TutorialService) { 
-    
+
+  constructor(private services: TutorialService, private router: Router) { 
   }
 
   ngOnInit(): void {
-    this.services.getAll()
-    .subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-      }
-    );
   }
 
   content = this.services.getAll()

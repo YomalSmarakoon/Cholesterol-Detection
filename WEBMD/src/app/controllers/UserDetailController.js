@@ -29,11 +29,9 @@ const detailForm = (req, res, next) =>{
 }
 
 const findAll = (req, res, next) => {
-    Result.find()
+    Result.findOne({})
     .then(result=>{
-      res.status(200).json({
-        result
-      });
+      res.send(result);
     })
     .catch(err=>{
       console.log(err)

@@ -1,3 +1,7 @@
-<div class="main-div">
-<h3>{{output | json}}</h3>
+<div class="main-div" fxLayoutAlign = "center center" ngFor let output>
+    <mat-card fxFlex="50">
+        <mat-toolbar>Result</mat-toolbar>
+        <br>
+        <h2>Hello, <b>{{output.name}}</b> You are <b>{{output.pred}}</b></h2>
+    </mat-card>
 </div>

@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import { TutorialService } from '../services/tutorial.service';
 import { Validators,  FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-detail-form',
@@ -30,7 +31,7 @@ export class UserDetailFormComponent{
     habits: '',
   };
 
-  constructor(private service: TutorialService,  private router: Router, private fb: FormBuilder){
+  constructor(private service: TutorialService,  private router: Router, private fb: FormBuilder, private http: HttpClient){
     this.form  = this.fb.group({
       name: ['', [Validators.required]],
       age: ['', [Validators.required]],
@@ -70,5 +71,17 @@ export class UserDetailFormComponent{
           console.log(error);
         }
       );
+
+      this.service.result()
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+      
+      this.router.navigate(['result']);
       }
 }

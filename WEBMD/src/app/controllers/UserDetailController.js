@@ -28,6 +28,7 @@ const detailForm = (req, res, next) =>{
         })
 }
 
+
 const findAll = (req, res, next) => {
     Result.findOne({})
     .then(result=>{
@@ -41,6 +42,19 @@ const findAll = (req, res, next) => {
     });
   }
 
+  const userhabits = (req, res, next) => {
+    UserDetail.findOne({})
+    .then(result=>{
+      res.send(result);
+    })
+    .catch(err=>{
+      console.log(err)
+      res.status(500).json({
+        error: err
+      })
+    });
+  }
+
 module.exports = {
-    detailForm,findAll
+    detailForm,findAll,userhabits
 }

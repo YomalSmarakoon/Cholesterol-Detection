@@ -8,5 +8,6 @@ router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
 router.post('/userdetail', UserDetailController.detailForm)
 router.get('/algorithm', UserDetailController.findAll)
+router.get('/userhabits', UserDetailController.userhabits)
 
 module.exports = router

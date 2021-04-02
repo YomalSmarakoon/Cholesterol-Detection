@@ -10,7 +10,7 @@ import {TutorialService } from '../../services/tutorial.service';
 })
 export class ResultComponent implements OnInit {
   output: any;
-
+  result:any;
 
   constructor(private services: TutorialService, private router: Router) { 
   }
@@ -24,6 +24,17 @@ export class ResultComponent implements OnInit {
       if(response)
         this.output = response;
         console.log(this.output);
+    },
+    error => {
+      console.log(error);
+    }
+  )
+  habits = this.services.gethabits()
+  .subscribe(
+    response => {
+      if(response)
+      this.result = response;
+      console.log(this.result);
     },
     error => {
       console.log(error);

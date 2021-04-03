@@ -4,10 +4,7 @@ img{
 }
 .grid{
     margin-top: -700px;
-}
-img:hover + .binura {
-    display: block;
-    width: 50%;
+    margin-left: 200px;
 }
 img:hover + .senesh {
     display: block;
@@ -31,12 +28,6 @@ img:hover + .malaka {
 }
 img:hover{
     opacity: 70%;
-}
-.binura{
-    display: none;
-    font-weight: bold;
-    font-size: 24px;
-    color:	#C0C0C0;
 }
 
 .senesh{
@@ -71,7 +62,7 @@ img:hover{
 }
 
 .col_white_amrc { color:#FFF;}
-footer { width:100%; background-color:#263238; min-height:250px; padding:10px 0px 25px 0px ;}
+footer { width:80%; background-color:#263238; min-height:250px; padding:10px 0px 25px 0px ; position: absolute; left: 305px;}
 .pt2 { padding-top:40px ; margin-bottom:20px ;}
 footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
 .mb10 { padding-bottom:15px ;}

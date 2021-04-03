@@ -55,7 +55,7 @@ import { ResultComponent } from './result/template/result.component';
     HttpClientModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   providers: [TutorialService],
   bootstrap: [AppComponent]

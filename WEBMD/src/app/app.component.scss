@@ -4,6 +4,25 @@
     height: 100%;
 }
 
-.container{
-	flex: 1 1 auto;
-}
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  

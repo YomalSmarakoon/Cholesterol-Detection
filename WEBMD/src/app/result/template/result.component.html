@@ -12,5 +12,22 @@
                 <li>Your Preferred Food Type:    {{result.habits}} food</li>
                 <li>Family Medical History  :    {{result.disease}}</li>
         </ul></div>
+        <div class = "healthytips" ngFor let message>
+            <h3>{{message}}</h3>
+                    <ul>
+                        <li *ngFor = "let i of suggestion">
+                          <img src = "../../../assets/Images/Foods/{{i.image}}">
+                          <p>{{i.name}}</p>
+                        </li>
+                      </ul>
+            </div>
+            <div class = "exercises">
+                <ul>
+                    <li *ngFor = "let k of exercise">
+                        <img src = "../../../assets/Images/Exercise/{{k.image}}">
+                        <p>{{k.name}}</p>
+                        </li>
+                </ul>
+            </div>
     </mat-card>
 </div>

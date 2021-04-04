@@ -11,6 +11,10 @@ import {TutorialService } from '../../services/tutorial.service';
 export class ResultComponent implements OnInit {
   output: any;
   result:any;
+  message: any;
+  image: any;
+  suggestion = [{}];
+  exercise = [{}];
 
   constructor(private services: TutorialService, private router: Router) { 
   }
@@ -24,6 +28,15 @@ export class ResultComponent implements OnInit {
       if(response)
         this.output = response;
         console.log(this.output);
+        if(this.output.pred == "the patient has NORMAL levels of cholesterol [1]"){
+          this.message = "Make Your Life Healthy";
+
+           this.suggestion = [{name:"Eat vegitable salads",image:"salad.jfif"}, {name:"Add carrots to your daily meal" ,image:"carrot.jfif"},{name:"Eat karapincha to burn oil",image:"karapincha.jfif"}];
+           this.exercise = [{name: "Walk at least 1km", image:"walk.jfif"},{name: "Run at least 30 minutes per day", image:"run.jfif"},{name: "Do 10 pushups per day", image:"pushups.jfif"}]
+
+           console.log(this.suggestion)
+
+        }
     },
     error => {
       console.log(error);

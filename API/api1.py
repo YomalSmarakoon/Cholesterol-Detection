@@ -46,6 +46,7 @@ def ml():
                 
         #finding a random collection in "userdetails'
         instance = table.find_one()
+        
                 
         #input variables
         UserName= instance['name']
@@ -56,7 +57,7 @@ def ml():
         UserSmoker=instance['smoker']
 
         #loading testing data
-        model=joblib.load('trainingdataofLR.joblib')
+        model=joblib.load('trainingdata.joblib')
 
 
         #if user smoke
@@ -82,6 +83,10 @@ def ml():
         
         #connecting to result database
         resultcollection = db["results"]
+        Userdetailscollection = db["userdetails"]
+
+        #deleting the user data after use to protect the users privacy and implementation reasons
+        Userdetailscollection.remove({"name":UserName})
 
 
         
@@ -115,6 +120,10 @@ def ml():
                 post3 = {"pred": pred3, "name": UserName} #data
 
                 return resultcollection.insert_one(post3)
+
+        
+        
+
 
                        	
                 

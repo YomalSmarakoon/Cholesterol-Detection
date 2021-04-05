@@ -16,6 +16,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 import joblib
 import pandas as pd
+import os
+import glob
+import pandas as pd
 
 
 # gender--       male =2  , female =1
@@ -23,9 +26,13 @@ import pandas as pd
 #cholestero --   1-normal   2-above normal  3-well above normal
 #age  ---        is in days
 
+
+
+
+
 # Load dataset
 pd.set_option('display.max_columns', None)
-df=pd.read_csv("D:\IIT\git hub\sdgp\Cholesterol-Detection\cardio_train 2.csv",delimiter=';')
+df=pd.read_csv("D:\IIT\Cholesterol-Detection\medical.csv",delimiter=';')
 
 df.info()
 
@@ -40,7 +47,7 @@ newset2 = df['cholesterol']
 
 
 #predection model
-model = LogisticRegression()
+model = LogisticRegression(solver='lbfgs', max_iter=1000)
 
 model.fit(newset1, newset2)
 

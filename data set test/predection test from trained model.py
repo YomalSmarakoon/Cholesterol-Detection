@@ -23,8 +23,10 @@ model=joblib.load('trainingdata.joblib')
 
 #random test data
 #                           age,gender,height,weight,smoke
-predictions=model.predict([['18250','1','152.4','52','0']])
-#predictions=model.predict([['17000','2','155','90','1']])
+#predictions=model.predict([['18250','1','152.4','52','0']])
+
+predictions = model.predict([['18250','1','152.4','52','0']])
+
 
 
 

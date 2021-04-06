@@ -46,6 +46,7 @@ def ml():
                 
         #finding a random collection in "userdetails'
         instance = table.find_one()
+        
                 
         #input variables
         UserName= instance['name']
@@ -56,7 +57,7 @@ def ml():
         UserSmoker=instance['smoker']
 
         #loading testing data
-        model=joblib.load('trainingdataofLR.joblib')
+        model=joblib.load('trainingdata.joblib')
 
 
         #if user smoke
@@ -80,8 +81,12 @@ def ml():
 
 
         
-
+        #connecting to result database
         resultcollection = db["results"]
+        Userdetailscollection = db["userdetails"]
+
+        #deleting the user data after use to protect the users privacy and implementation reasons
+        Userdetailscollection.remove({"name":UserName})
 
 
         
@@ -94,10 +99,6 @@ def ml():
 
                 return resultcollection.insert_one(post1)
 
-
-        	#return jsonify("the patient has NORMAL levels of cholesterol [1]")
-                #resultlist= {"id":0, "name": UserName, "description": "the patient has NORMAL levels of cholesterol [1]"}
-                #return resultcollection.insert_one({"name": "dd", "description": "the patient has NORMAL levels of cholesterol [1]"})
                 
 
         elif predictions == 2 :
@@ -111,9 +112,7 @@ def ml():
 
                 #return resultcollection.insert_one(post2)
 
-        	#return jsonify("the patient has ABOVE NORMAL levels of cholesterol [2]")
-                #resultlist= {"id":0, "name": UserName, "description": "the patient has ABOVE NORMAL levels of cholesterol [2]" }
-                #return resultcollection.insert_one({ "name": "dd", "description": "the patient has ABOVE NORMAL levels of cholesterol [2]" })
+
         	 
         elif predictions == 3 :
                 pred3 = "the patient has WELL ABOVE NORMAL levels of cholesterol [3]"
@@ -122,19 +121,15 @@ def ml():
 
                 return resultcollection.insert_one(post3)
 
-                #return resultcollection.insert_one(post3)
-
-        	#return jsonify("the patient has WELL ABOVE NORMAL levels of cholesterol [3]")
-                #resultlist= {"id":0, "name": UserName, "description": "the patient has WELL ABOVE NORMAL levels of cholesterol [3]"}
-                #return resultcollection.insert_one({"name": "dd", "description": "the patient has WELL ABOVE NORMAL levels of cholesterol [3]"})
-
+        
         
 
 
-        	
+                       	
                 
 
 #api.add_resource(helloworld,"/helloworld")
 
 if __name__ == "__main__":
 	app.run(debug=True)
+

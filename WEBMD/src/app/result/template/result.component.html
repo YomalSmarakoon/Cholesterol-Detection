@@ -5,13 +5,7 @@
         <h2>Hello, <b>{{output.name}}</b></h2>
         <div ngFor let result>
             <h3>You are <b>{{output.pred}}</b></h3>
-            <ul type = "circle">
-                <ul type = "square"><li>We have Predicted your cholesterol level According to these parameters,</li></ul> 
-                <li>Your Smoking Status     :    {{result.smoker}}</li>
-                <li>Your Exercising Routine :    {{result.exercise}} </li>
-                <li>Your Preferred Food Type:    {{result.habits}} food</li>
-                <li>Family Medical History  :    {{result.disease}}</li>
-        </ul></div>
+            </div>
         <div class = "healthytips" ngFor let message>
             <h3>{{message}}</h3>
                     <ul>

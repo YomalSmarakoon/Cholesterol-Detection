@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 const baseUrl = 'http://127.0.0.1:3000/api/register';
 const loginurl = 'http://127.0.0.1:3000/api/login';
+const userverification = 'http://127.0.0.1:3000/api/userverify';
 const userDetailurl = 'http://127.0.0.1:3000/api/userdetail';
 const resulturl = ' http://127.0.0.1:3000/api/algorithm';
 const predurl = ' http://127.0.0.1:5000/algorithm';
@@ -28,6 +29,10 @@ export class TutorialService {
 
   find(logindet: any){
     return this.http.post(loginurl, logindet);
+  }
+
+  verify() {
+    return this.http.get(userverification);
   }
 
   send(userdata: any){

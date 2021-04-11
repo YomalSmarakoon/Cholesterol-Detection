@@ -47,12 +47,11 @@ const login = (req, res, next) => {
                 if(result){
                     let token = jwt.sign({fname: user.fname}, 'secretvalue', {expiresIn: '1h'})
                     res.json({
-                        message: 'Login Successful!',
-                        token
+                        message: 'Login Successful!'
                     })
                 }else{
                     res.json({
-                        message: 'Password does not matched!'
+                        
                     })
                 }
             })
@@ -64,6 +63,19 @@ const login = (req, res, next) => {
     })
 }
 
+const loginverify = (req, res, next) => {
+    User.findOne({})
+    .then(result=>{
+      res.send(result);
+    })
+    .catch(err=>{
+      console.log(err)
+      res.status(500).json({
+        error: err
+      })
+    });
+  }
+
 module.exports = {
-    register, login
+    register, login, loginverify
 }

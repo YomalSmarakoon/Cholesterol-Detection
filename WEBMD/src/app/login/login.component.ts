@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
+  output: any;
   
   constructor(private fb: FormBuilder, private router: Router, private service: TutorialService) {
     this.form  = this.fb.group({
@@ -33,8 +34,14 @@ export class LoginComponent implements OnInit {
         this.service.find(userdata)
         .subscribe(
           response => {
+            this.output = response;
             console.log(response);
+            if(this.output.message == "Login Successful!"){
             this.router.navigate(['user-detail-form']);
+            }else{
+              alert("Username or password incorrect");
+              this.router.navigate(['login']);
+            }
           },
           error => {
             console.log(error);

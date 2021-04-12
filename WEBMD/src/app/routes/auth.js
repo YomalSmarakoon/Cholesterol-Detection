@@ -10,5 +10,6 @@ router.get('/userverify', AuthController.loginverify)
 router.post('/userdetail', UserDetailController.detailForm)
 router.get('/algorithm', UserDetailController.findAll)
 router.get('/userhabits', UserDetailController.userhabits)
+router.get('/remove', UserDetailController.destroy)
 
 module.exports = router

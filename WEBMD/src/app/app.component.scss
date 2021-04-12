@@ -25,4 +25,13 @@
     background-color: #555;
     color: white;
   }
+
+  .logo{
+    animation-name: circular;
+    animation-duration: 2s;
+  }
+  
+  @keyframes circular {
+    100% {transform: rotate(360deg);}
+  }
   

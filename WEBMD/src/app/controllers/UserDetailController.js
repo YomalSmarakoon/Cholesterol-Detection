@@ -55,6 +55,19 @@ const findAll = (req, res, next) => {
     });
   }
 
+  const destroy = (req, res, next) => {
+    Result.deleteMany()
+    .then(result=>{
+      res.send(result);
+    })
+    .catch(err=>{
+      console.log(err)
+      res.status(500).json({
+        error: err
+      })
+    });
+  }
+
 module.exports = {
-    detailForm,findAll,userhabits
+    detailForm,findAll,userhabits, destroy
 }

@@ -29,7 +29,7 @@ export class ResultComponent implements OnInit {
       if(response)
         this.output = response;
         console.log(this.output);
-        if(this.output.pred == "the patient has NORMAL levels of cholesterol [1]"){
+        if(this.output.pred == "the patient has NORMAL levels of cholesterol"){
           this.message = "Tips for a Healthy Life";
 
            this.suggestion = [{name:"Eat vegitable salads",image:"salad.jfif"}, {name:"Add carrots to your daily meal" ,image:"carrot.jfif"},{name:"Eat karapincha to burn oil",image:"karapincha.jfif"}];
@@ -39,7 +39,7 @@ export class ResultComponent implements OnInit {
 
            console.log(this.suggestion)
 
-        }else if(this.output.pred == "the patient has ABOVE NORMAL levels of cholesterol [2]"){
+        }else if(this.output.pred == "the patient has ABOVE NORMAL levels of cholesterol"){
           this.message = "Tips to Lower Cholesterol";
 
           this.suggestion = [{name:"Avoid Oily Foods",image:"oilfood.jfif"}, {name:"Avoid Starchy Foods" ,image:"starchyfood.jfif"},{name:"Add fruits to daily meals",image:"goodfood.jfif"}];
@@ -47,7 +47,7 @@ export class ResultComponent implements OnInit {
 
           this.memo = "If you are not satisfied about the result please visit doctor!!!";
 
-        }else if (this.output.pred == "the patient has WELL ABOVE NORMAL levels of cholesterol [3]") {
+        }else if (this.output.pred == "the patient has WELL ABOVE NORMAL levels of cholesterol") {
           this.message = "Tips to lower High Cholesterol";
 
           this.suggestion = [{ name: "Avoid Drugs", image: "drugs.png" }, { name: "Eat karapincha sambal", image: "sambola.jfif" }, { name: "Eat home made meals", image: "homemade.jfif" }];

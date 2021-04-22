@@ -1,0 +1,31 @@
+<div fxLayoutAlign = "center center" class="main-div">
+    <mat-card fxFlex="35">
+        <mat-toolbar color = "warn">Login Page</mat-toolbar>
+        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "login-form" [formGroup]="form">
+            <mat-form-field>
+              <input formControlName="username" name = "usernameInput" matInput type = "text" class="form-control" id="usernameInput" placeholder="Username/Email" [(ngModel)]="details.email">
+            </mat-form-field>
+          
+            <mat-form-field>
+              <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" class="form-control" id="passwordInput" placeholder="Password" [(ngModel)]="details.password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              </mat-form-field>
+              <button mat-raised-button type="submit" (click)="onSubmit()" color = "warn">Login</button>
+              <label fxLayoutAlign = "center" id = "or" color = "gray">OR</label>
+              <a href= "signup" mat-raised-button color = "warn"><button mat-raised-button type = "button" color = "warn">Sign In</button></a>
+              <br>
+              <hr>
+              <div class="validations" *ngIf="form.touched">
+              
+                <span>
+                    <i class="fa fa-check-circle" style="color:green;" *ngIf="form.controls.username.valid"></i>
+                    <i class="fa fa-times-circle" style="color:firebrick;"  *ngIf="form.controls.username.invalid"></i>
+                    Username should be minimum 4 characters long.
+                </span>
+                
+                </div>
+          </form>
+    </mat-card>
+</div>

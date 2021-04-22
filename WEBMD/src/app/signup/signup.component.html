@@ -1,0 +1,49 @@
+<div fxLayoutAlign = "center center" class="main-div">
+    <mat-card fxFlex="50">
+        <mat-toolbar color = "warn">Signup Page</mat-toolbar>
+        <form fxLayoutAlign = "stretch" fxLayout = "column" class = "signup-form" [formGroup]="form" (ngSubmit)="onSubmit()" method="POST">
+            <mat-form-field>
+              <input name = "name" formControlName="Name" matInput class="form-control" id="name" placeholder="First Name" required [(ngModel)]="details.fname">
+            </mat-form-field>
+          
+            <mat-form-field>
+                <input matInput formControlName="Lastname" name = "surname" class="form-control" id="surname" placeholder="Last Name" required [(ngModel)]="details.lname">
+              </mat-form-field>
+
+              <mat-form-field>
+                  <input matInput formControlName="Email" name = "email" class="form-control" id="email" placeholder="Email" required [(ngModel)]="details.email">
+                  </mat-form-field>
+
+                  <mat-form-field>
+                      <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" name = "password" class="form-control" id="password" placeholder="Password" required [(ngModel)]="details.password">
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'" name = "cnfpassword" class="form-control" id="cnfpassword" placeholder="Confirm Password" required [(ngModel)]="details.cpassword">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+              <button mat-raised-button type = "button" (click)="onSubmit()" color = "warn">Create New Account</button>
+
+              <div class="validations" *ngIf="form.touched">
+                <br>
+                  <hr>
+                <span>
+                  <i class="fa fa-check-circle" style="color:green;"  *ngIf="form.controls.confirmPassword.valid"></i>
+                  <i class="fa fa-times-circle" style="color:firebrick;" *ngIf="form.controls.confirmPassword.invalid"></i>
+                  Password and Confirm Password should match.
+                </span>
+                <br>
+                <span>
+                  <i class="fa fa-check-circle" style="color:green;"  *ngIf="form.controls.Password.valid"></i>
+                  <i class="fa fa-times-circle" style="color:firebrick;" *ngIf="form.controls.Password.invalid"></i>
+                  Password Should have minimum 6 characters.
+                </span>
+                </div>
+          </form>
+    </mat-card>
+</div>

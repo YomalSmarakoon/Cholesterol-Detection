@@ -1,0 +1,60 @@
+.main-div {
+    padding : 0px;
+    margin-top: -700px;
+    opacity: 90%;
+}
+
+mat-toolbar{
+    background-color: #d87a00;
+    color:  white;
+}
+
+table{
+    font-size: large;
+}
+
+img{
+    width: 100px;
+    height: 60px;
+}
+
+.healthytips{
+    float: right;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    width: 225px;
+}
+
+li{
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.exercises{
+    float: left;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    width: 225px;
+}
+
+.message{
+    text-align: center;
+    font-size: 100px;
+}
+
+.suggestions{
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 225px;
+}
+
+button{
+    width: 100%;
+}
+
+.strict{
+    text-align: center;
+}

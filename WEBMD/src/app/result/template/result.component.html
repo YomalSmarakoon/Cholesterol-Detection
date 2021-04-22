@@ -1,0 +1,47 @@
+<div class="main-div" fxLayoutAlign = "center center" ngFor let output>
+    <mat-card fxFlex="50">
+        <mat-toolbar>Result</mat-toolbar>
+        <br>
+        <h2>Hello, <b>{{output.name}}</b></h2>
+        <div ngFor let result>
+            <h3>You are <b>{{output.pred}}</b></h3>
+            </div>
+            <div class = "message"><h3><b>{{message}}</b></h3></div>
+        <div class = "healthytips" ngFor let message>
+                    <ul>
+                        <li *ngFor = "let i of suggestion">
+                          <img src = "../../../assets/Images/Foods/{{i.image}}">
+                          <p>{{i.name}}</p>
+                        </li>
+                      </ul>
+            </div>
+            <div class = "exercises">
+                <ul>
+                    <li *ngFor = "let k of exercise">
+                        <img src = "../../../assets/Images/Exercise/{{k.image}}">
+                        <p>{{k.name}}</p>
+                        </li>
+                </ul>
+            </div>
+
+            <div class = "suggestions">
+                <ul type = "square">
+                    <li>Eat at least 2 Bananas</li>
+                    <li>Drink 3 liters of Water</li>
+                    <li>Eat at least 2 Yogurts</li>
+                    <li>Drink Almond milk</li>
+                    <li>Eat Oatmeal</li>
+                    <li>Drink Tomato juice</li>
+                    <li>Drink Green tea</li>
+                    <li>Eat or Drink Barley</li>
+                    <li>Eat Apples and Grapes</li>
+                    <li>Eat Beans</li>
+                </ul>
+            </div>
+            <br>
+            <div class = "strict"><p><b><i><i class="fa fa-asterisk" aria-hidden="true"></i>{{memo}}</i></b></p></div>
+            
+            
+            <button mat-raised-button type="submit" (click)="onSubmit()" color = "warn">Clear your details</button>
+    </mat-card>
+</div>

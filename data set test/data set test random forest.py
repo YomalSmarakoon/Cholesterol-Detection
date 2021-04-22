@@ -26,7 +26,7 @@ import pandas as pd
 # Load dataset
 #joblib.load('trainingdata.joblib')
 pd.set_option('display.max_columns', None)
-df=pd.read_csv("D:\IIT\git hub\sdgp\Cholesterol-Detection\cardio_train 2.csv",delimiter=';')
+df=pd.read_csv("D:\IIT\Cholesterol-Detection\medical.csv",delimiter=';')
 
 
 print(df)
@@ -55,17 +55,24 @@ joblib.dump(model,'trainingdata.joblib')
 
 
 #acurracy testing
-prediction = model.predict(newset1_test)
-score=accuracy_score(newset2_test, prediction)
+#prediction = model.predict(newset1_test)
+#score=model.score(newset1_train, newset2_train):.3f
 
+score = model.score(newset1_train,newset2_train)
+score2 = model.score(newset1_test,newset2_test)
+
+print("train accuracy  : ",score)
+print("test accuracy  : ",score2)
+#print(f'Training accuracy - : {model.score{newset1_test,newset2_test}:.3f}')
 
 #                           age,gender,height,weight,smoke
-prediction=model.predict([['17000','2','155','90','1']])
+#prediction=model.predict([['21900','1','152','58','0']])
 #predictions=model.predict([['22469','1','155','69.0','0']])
-predictions=model.predict([['18250','1','152.4','52','0']])
+prediction=model.predict([['18250','2','152.4','52','0']])
 
 
-print("accuracy score :",score)
+#print("accuracy score :",score)
 
 print("first prediction : ",prediction)
-print("second prediction : ",predictions)
+print(model.best_estimator_)
+#print("second prediction : ",predictions)

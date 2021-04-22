@@ -21,22 +21,25 @@ model=joblib.load('trainingdata.joblib')
 
 
 
+
+pred = model.predict([['1233','1','154','58','1']])
+  
+
 #random test data
 #                           age,gender,height,weight,smoke
 #predictions=model.predict([['18250','1','152.4','52','0']])
 
-predictions = model.predict([['18250','1','152.4','52','0']])
+#predictions = model.predict([['21900','1','152.4','58','0']])
 
 
 
-
-if predictions == 1 :
+if pred == 1 :
     print("the patient has NORMAL levels of cholesterol [1]")
 
-elif predictions == 2 :
+elif pred == 2 :
     print("the patient has ABOVE NORMAL levels of cholesterol [2]")
          
-elif predictions == 3 :
+elif pred == 3 :
     print("the patient has WELL ABOVE NORMAL levels of cholesterol [3]")
         
 

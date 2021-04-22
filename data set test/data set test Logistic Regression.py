@@ -62,7 +62,7 @@ joblib.dump(model,'trainingdataofLR.joblib')
 
 
 #                           age,gender,height,weight,smoke
-#prediction=model.predict([['17000','2','155','90','1']])
+prediction=model.predict([['17000','2','155','90','1']])
 #predictions=model.predict([['22469','1','155','69.0','0']])
 #predictions=model.predict([['18250','1','152.4','52','0']])
 
@@ -70,7 +70,7 @@ joblib.dump(model,'trainingdataofLR.joblib')
 #print("accuracy score :",score)
 print(f'Accuracy - :',model.score(newset1, newset2))
 
-#print("first prediction : ",prediction)
+print("first prediction : ",prediction)
 #print("second prediction : ",predictions)
 
 

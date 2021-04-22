@@ -91,7 +91,7 @@ def ml():
 
         
         if predictions == 1 :
-                pred1 = "the patient has NORMAL levels of cholesterol [1]"
+                pred1 = "the patient has NORMAL levels of cholesterol"
 
                 post1 = {"pred": pred1, "name": UserName} #data
 
@@ -103,7 +103,7 @@ def ml():
 
         elif predictions == 2 :
 
-                pred2 = "the patient has ABOVE NORMAL levels of cholesterol [2]"
+                pred2 = "the patient has ABOVE NORMAL levels of cholesterol"
 
                 post2 = { "pred": pred2, "name": UserName} #data
 
@@ -115,7 +115,7 @@ def ml():
 
         	 
         elif predictions == 3 :
-                pred3 = "the patient has WELL ABOVE NORMAL levels of cholesterol [3]"
+                pred3 = "the patient has WELL ABOVE NORMAL levels of cholesterol"
 
                 post3 = {"pred": pred3, "name": UserName} #data
 
